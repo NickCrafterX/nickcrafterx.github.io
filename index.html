@@ -1,0 +1,300 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Cool Fancy Name Generator – Create Stylish Nicknames for Free</title>
+<style>
+* { box-sizing: border-box; }
+body, html {
+    margin: 0; padding: 0; height: 100%;
+    font-family: 'Segoe UI', sans-serif;
+    background: #1e1e1e;
+    overflow-x: hidden;
+    color: white;
+}
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 240px;
+    background: #2c2c2c;
+    border-right: 1px solid #444;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 10px;
+    z-index: 100;
+}
+.sidebar h2 {
+    text-align: center;
+    font-size: 18px;
+    margin: 10px 0;
+    font-weight: bold;
+}
+.sidebar a {
+    display: block;
+    background: #3a3a3a;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    margin: 6px 0;
+    padding: 12px 10px;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: background 0.3s, transform 0.2s;
+}
+.sidebar a:hover {
+    background: #505050;
+    transform: scale(1.05);
+}
+.content {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 240px;
+}
+h1 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+input[type="text"], button {
+    display: block;
+    width: 90%;
+    max-width: 400px;
+    margin: 10px auto;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 12px;
+    border: none;
+    background: #333;
+    color: white;
+}
+input::placeholder { color: #ccc; }
+button {
+    background: #444;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s, transform 0.2s;
+}
+button:hover {
+    background: #555;
+    transform: scale(1.03);
+}
+.stylish-item {
+    background: #2e2e2e;
+    border-radius: 12px;
+    padding: 12px;
+    margin: 10px auto;
+    max-width: 400px;
+    text-align: center;
+    transition: transform 0.2s;
+}
+.stylish-item:hover {
+    transform: translateY(-2px);
+}
+.copy-btn {
+    margin-top: 8px;
+    padding: 6px 12px;
+    background: #444;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    color: white;
+    transition: background 0.3s, transform 0.2s;
+}
+.copy-btn:hover {
+    background: #555;
+    transform: scale(1.05);
+}
+.extra-section {
+    text-align: center;
+    padding: 15px;
+    max-width: 800px;
+    width: 100%;
+}
+.extra-text {
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+.extra-image {
+    max-width: 100px;
+    height: auto;
+    margin-top: 5px;
+}
+footer {
+    text-align: center;
+    padding: 15px;
+    background: #2c2c2c;
+    font-size: 14px;
+    max-width: 800px;
+    width: 100%;
+    margin-top: 20px;
+}
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        border-right: none;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 10px 0;
+        z-index: auto;
+    }
+    .sidebar h2 {
+        flex-basis: 100%;
+    }
+    .sidebar a {
+        flex: 1 0 40%;
+        margin: 5px;
+    }
+    .content {
+        margin-left: 0;
+        padding: 20px 10px;
+        align-items: center;
+    }
+    .extra-section, footer {
+        max-width: 100%;
+        padding: 10px;
+    }
+}
+</style>
+</head>
+<body><div class="container">
+    <div class="sidebar">
+        <h2>Site Menu</h2>
+        <a href="https://nickfinder.com/CreaTe" target="_blank" rel="nofollow noopener noreferrer noindex">Nickfinder</a>
+        <a href="https://www.name-generator.org.uk/nickname/" target="_blank" rel="nofollow noopener noreferrer noindex">NameGenerator</a>
+        <a href="https://fancytextcloud.com/stacked/" target="_blank" rel="nofollow noopener noreferrer noindex">FancyTextCloud</a>
+        <h2>Social Media</h2>
+        <a href="https://discord.gg/bSFgcFRm" target="_blank" rel="nofollow noopener noreferrer noindex">Discord Server</a>
+        <a href="https://www.youtube.com/@PhantomStudioXx" target="_blank" rel="nofollow noopener noreferrer noindex">YouTube Channel</a>
+    </div><div class="content">
+    <div class="extra-section">
+        <h2>Create a Shaped Name...</h2>
+        <input type="text" id="topInput" placeholder="The text above (Example: IAM)">
+        <input type="text" id="bottomInput" placeholder="The text below (Example: Legend)">
+        <button onclick="generateOverlayName()">Create</button>
+        <div class="stylish-item" id="overlayOutput">Your shaped name will appear here...</div>
+    </div>
+
+    <h1>Shaped Name Generator</h1>
+    <input type="text" id="nameInput" placeholder="Enter your name...">
+    <button onclick="applyStylishNames()">Create Shaped Name. </button>
+    <div id="outputContainer"></div>
+        <!-- Extra section and footer inside content -->
+        <div class="extra-section">
+            <h3>About Our Fancy Name Generator</h3>
+            <p>Our Fancy Name Generator is designed specifically for gamers, streamers, and social media enthusiasts who want to stand out with unique and stylish nicknames. Having a cool and eye-catching nickname can make your gaming profile or online identity more memorable and attractive across popular platforms like PUBG, Free Fire, Roblox, Brawl Stars, Fortnite, Instagram, and TikTok.<p>
+            <h3>Why Should You Use Stylish Nicknames?</h3>
+            <p>Stylish nicknames give you a personal brand and help you differentiate yourself in competitive gaming or social media environments. They add flair and professionalism to your profile, helping you gain more followers and recognition. Whether you are a casual player or a serious content creator, a fancy name can elevate your presence.<p>
+            <h3>How Does Our Generator Work?</h3>
+            <p>Our tool is easy and quick to use. Simply type your desired name into the input box and click “Generate Fancy Names.” The generator instantly creates dozens of creative and decorative nickname styles for you to choose from. You can easily copy your favorite style and paste it wherever you want—whether in games, chats, or social networks—without needing to download anything.<p>
+            <h3>Is This Generator Free?</h3>
+            <p>Yes, this fancy name generator is completely free and accessible to everyone. There are no hidden fees or subscriptions. You can create as many stylish nicknames as you want, anytime you want.<p>
+            <h3>Privacy and Safety</h3>
+            <p>We respect your privacy and do not collect any personal information. The generator works entirely on your browser, so your inputs never leave your device. This means your data is safe and secure.<p>
+            <h3>Final Thoughts</h3>
+            <p>If you want to add a touch of style and uniqueness to your gaming or social media profiles, our Fancy Name Generator is the perfect tool for you. It’s fast, easy, and free. Try it now and see how a simple stylish nickname can transform your online identity.<p>
+            <h3>Fancy Nickname Generator</h3>
+            <p>Generate cool, stylish, and unique nicknames for your gaming and social media accounts in seconds. Whether you want a fancy name for your PUBG or Roblox profile or need a creative username for TikTok and Instagram, this tool offers a variety of stylish options for you to choose from. Enter your name, generate styles, and copy your favorite nickname to stand out online.<p>
+
+            <img src="background.png" alt="Footer Image" class="extra-image">
+            <div class="extra-text">Thank you for coming to the site...</div>
+        </div>
+        
+        <footer>
+    © 2025 All Rights Reserved. | <a href="privacy.html" style="color:#ccc;">Privacy Policy</a>
+      </footer>
+</div>
+
+</div><script>
+const defaultName = "ExampleNick";
+function generateStylishNames(name) {
+    const outputContainer = document.getElementById('outputContainer');
+    outputContainer.innerHTML = '';
+    const useName = name.trim() !== "" ? name.trim() : defaultName;
+    const styles = [
+        `꧁༺༒✧${useName}✧༒༻꧂`, `★彡[${useName}]彡★`, `♛✚${useName}✚♛`, `『✪』${useName}『✪』`,
+        `╰☆☆ ${useName} ☆☆╮`, `⎝⧹${useName}⧸⎠`, `🜲༄${useName}༄🜲`, `✦͙͙͙*̥̥͙͙͙ͦ✩͙*̥̥͙ͦ${useName}*̥̥͙͙͙ͦ✩͙*̥̥͙ͦ`,
+        `༒•${useName}•༒`, `✧༺༻✧${useName}✧༺༻✧`, `❖╬═══╬❖${useName}❖╬═══╬❖`, `✪༺༻✪${useName}✪༺༻✪`,
+        `✰★☆${useName}☆★✰`, `❈•≫${useName}≪•❈`, `༆༒☬${useName}☬༒༆`, `✧⊶⊷⊶⊷${useName}⊶⊷⊶⊷✧`,
+        `༄༅༆${useName}༆༅༄`, `✪━✪${useName}✪━✪`, `༺༻✧${useName}✧༺༻`, `༺๖ۣۜ${useName}༻`,
+        `♚✧${useName}✧♚`, `⦇${useName}⦈`, `✪${useName}✪`, `『${useName}』`, `【${useName}】`,
+        `✿${useName}✿`, `☯${useName}☯`, `༺☯${useName}☯༻`, `ツ${useName}ツ`, `☂${useName}☂`,
+        `±${useName}±`, `☾${useName}☽`, `✩${useName}✩`, `Œ*${useName}*Œ`, `☬${useName}☬`,
+        `♞${useName}♞`, `꧁✧${useName}✧꧂`, `★彡${useName}彡★`
+    ];
+    styles.forEach(style => {
+        const div = document.createElement('div');
+        div.className = 'stylish-item';
+        div.innerHTML = `<div>${style}</div><button class="copy-btn" onclick='copySingle("${style}")'>Copy</button>`;
+        outputContainer.appendChild(div);
+    });
+}
+function copySingle(text) {
+    navigator.clipboard.writeText(text).then(() => {
+        alert('Copied: ' + text);
+    });
+}
+function applyStylishNames() {
+    const input = document.getElementById('nameInput');
+    if (input.value.trim() === "") {
+        alert("Please enter your name... How to enter your name Write your name instead of enter your name.");
+        input.focus();
+        return;
+    }
+    generateStylishNames(input.value);
+}
+
+const allCombining = {
+  'a': '\u0363','b': '\u0364','c': '\u0368','d': '\u0369','e': '\u0364','f': '\u036C','g': '\u036D',
+  'h': '\u036A','i': '\u0365','j': '\u036E','k': '\u036F','l': '\u0360','m': '\u036B','n': '\u035F',
+  'o': '\u0366','p': '\u035C','q': '\u035D','r': '\u036C','s': '\u035E','t': '\u036D','u': '\u036E',
+  'v': '\u036F','w': '\u0359','x': '\u0367','y': '\u035A','z': '\u035B'
+};
+function generateOverlayName() {
+  const top = document.getElementById("topInput").value.toLowerCase();
+  const bottom = document.getElementById("bottomInput").value;
+  const outputDiv = document.getElementById("overlayOutput");
+
+  if (top.trim() === "" || bottom.trim() === "") {
+    alert("Please write something!");
+    return;
+  }
+
+  let result = "";
+  for (let i = 0; i < bottom.length; i++) {
+    const baseChar = bottom[i];
+    const topChar = top[i] ? top[i].toLowerCase() : '';
+    const combining = allCombining[topChar] || '';
+    result += baseChar + combining;
+  }
+  if (result) {
+    outputDiv.innerHTML = `
+      <div style="font-size: 24px; margin-bottom: 8px;">${result}</div>
+      <button class="copy-btn" onclick="copyOverlayName('${result.replace(/'/g, "\\'")}')">Copy</button>
+    `;
+  } else {
+    outputDiv.innerText = "";
+  }
+}
+function copyOverlayName(text) {
+  navigator.clipboard.writeText(text).then(() => {
+    alert("Name Copied:\n" + text);
+  });
+}
+window.onload = () => { generateStylishNames(""); };
+</script></body>
+</html>
